@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>深圳市泰博国际货运代理有限公司肺炎防疫排查表</title>
+	{include file="common/meta"/}
+	<link rel="stylesheet" href="__CSS__index.css">
+
+
+</head>
+<body>
+	<div class="container">
+		<h1 class="text-center">深圳市泰博国际货运代理有限公司肺炎防疫排查表</h1>
+		
+			
+
+
+	<div class="panel-body">
+
+	<table class="table table-striped table-bordered table-hover dataTable">
+				<tr class="success">
+					
+					<th>姓名</th>
+					<th>英文名</th>
+				
+					<th>疑似感染填写次数</th>
+						
+							
+				</tr>
+			
+				{for start="0" end="count($sum)" }
+				<tr class="active">
+
+					
+					<td>{$namearr[$i]}</td>
+					<td>{$englishnamearr[$i]}</td>
+					
+					<td>{$sum[$i]}</td>
+					
+				</tr>
+				{/for}	
+
+		</table>
+		
+	</div>
+
+</div>
+
+
+
+
+
+
+
+</body>
+</html>
+	<script type="text/javascript">
+
+
+	$(function () {
+		$('#datetimepicker1').datetimepicker({
+			format: 'YYYY-MM-DD',
+			locale: moment.locale('zh-cn')
+		});
+		$('#datetimepicker2').datetimepicker({
+			format: 'YYYY-MM-DD ',
+			locale: moment.locale('zh-cn')
+		});
+	});
+
+    </script>

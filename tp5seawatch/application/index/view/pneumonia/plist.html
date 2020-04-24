@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>深圳市泰博国际货运代理有限公司肺炎防疫排查表</title>
+	{include file="common/meta"/}
+	<link rel="stylesheet" href="__CSS__index.css">
+
+
+</head>
+<body>
+	<div class="container">
+		<h1 class="text-center">深圳市泰博国际货运代理有限公司肺炎防疫排查表</h1>
+		<form class="row form-inline" action="{:url('pneumonia/search')}" method="post">
+           <div class="col-sm-offset-2 col-sm-12">
+			<div class='col-sm-2'>
+				<div class="form-group ">
+					<label>按日期选择日期：</label>
+					<!--指定 date标记-->
+					<div class='input-group date' id='datetimepicker1'>
+						<input type='text' class="form-control" name="startday" />
+						<span class="input-group-addon">
+							<span class="glyphicon glyphicon-calendar"></span>
+						</span>
+					</div>
+				</div>
+			</div>
+			<div class='col-sm-2'>
+				<div class="form-group">
+					<label>选择日期：</label>
+					<!--指定 date标记-->
+					<div class='input-group date' id='datetimepicker2'>
+						<input type='text' class="form-control" name="endday" />
+						<span class="input-group-addon">
+							<span class="glyphicon glyphicon-calendar"></span>
+						</span>
+					</div>
+				</div>
+			</div>
+
+			
+
+			
+			<div class="col-sm-2">
+				<input type="text" placeholder="输入部门搜索" value="" name="depart" class="input-lg form-control-2">
+
+
+			</div>
+
+			<div class="col-sm-1">
+				<button class="btn btn-primary btn-lg btn-block" type="submit">搜索</button>  
+			</div>
+			<div class="form-group col-sm-1 ">
+				<label for="exampleInputPassword2">所查人数：</label>
+				<input type="text" class="form-control" id="exampleInputPassword2" name="id"  value="{$total}">
+			</div>
+			<div class="form-group col-sm-1">
+
+				<label for="exampleInputPassword1">疑似症状人数：</label>
+				<input type="text" class="form-control " id="exampleInputPassword1" name="pneumoniasum" value="{$sum}">
+
+			</div>
+			<div class="form-group col-sm-1">
+
+				<label for="exampleInputPassword3">自备口罩总和：</label>
+				<input type="text" class="form-control " id="exampleInputPassword3" name="zmask" value="{$zmask}">
+
+			</div>
+
+			</div>
+			
+
+		
+	<div class="panel-body">
+
+	<table class="table table-striped table-bordered table-hover dataTable">
+				<tr class="success">
+					<th>填表日期</th>
+					<th>姓名</th>
+					<th>英文名</th>
+					<th>所属部门</th>
+					<th>体温测量</th>
+					<th>小区病例</th>
+					
+					<th>离开深圳</th>
+					
+					<th>健康</th>	
+					<th>休假地</th>			
+					<th>现在地</th>			
+					<th>回深圳时间</th>			
+					<th>途经湖北</th>			
+					<th>离开湖北时间</th>			
+					<th>与重点防护区接触</th>			
+					<th>与感染人员接触</th>	
+					<th>是否外出</th>	
+					<th>口罩型号</th>	
+					<th>口罩数量</th>	
+					<th>上班是否领口罩</th>	
+
+					<th>记录时间</th>			
+							
+				</tr>
+				{foreach $list as $v }
+				<tr class="active">
+					<td>{$v.bookday?(date('Y-m-d',$v.bookday)):'没填'}</td>
+					<td>{$v.username}</td>
+					<td>{$v.englishname}</td>
+					<td>{$v.depart}</td>
+					<td>{$v.temperature}</td>
+					<td>{$v.pneumonia?'有':'没有'}</td>
+					
+					<td>{$v.optionsz?'是':'没有'}</td>
+					<td>{$v.healthy?'良好':'有疑似症状'}</td>	
+					<td>{$v.place}</td>			
+					<td>{$v.placem}</td>			
+					<td>{$v.goday?(date('Y-m-d',$v.goday)):'没经过'}</td>			
+					<td>{$v.optionhb?'是':'没有'}</td>			
+					<td>{$v.leaveday?(date('Y-m-d',$v.leaveday)):'没经过'}</td>			
+					<td>{$v.optionjc?'是':'没有'}</td>			
+					<td>{$v.optionbin?'是':'没有'}</td>			
+					<td>{$v.outdoors?$v.outdoors:'没填'}</td>	
+					<td>{$v.mask?$v.mask:'没填'}</td>
+					<td>{$v.masknum?$v.masknum:'没填'}</td>			
+					<td>{$v.lmask?'是':'否'}</td>			
+								
+					<td>{$v.recordingtime?(date('Y-m-d H:i:s',$v.recordingtime)):'没填'}</td>
+					
+							
+				</tr>
+				{/foreach}
+		</table>
+		<div class="pull-right">
+				{$page|raw}
+			</div>
+	</div>
+	<div class="form-group col-md-1 pull-right">
+			<a type="button" class="btn btn-primary btn-lg" href="{:url('index/index/index')}">返回首页</a>
+		</div>
+</form>
+</div>
+
+
+
+
+
+
+
+
+</body>
+</html>
+	<script type="text/javascript">
+
+
+	$(function () {
+		$('#datetimepicker1').datetimepicker({
+			format: 'YYYY-MM-DD',
+			locale: moment.locale('zh-cn')
+		});
+		$('#datetimepicker2').datetimepicker({
+			format: 'YYYY-MM-DD ',
+			locale: moment.locale('zh-cn')
+		});
+	});
+
+    </script>

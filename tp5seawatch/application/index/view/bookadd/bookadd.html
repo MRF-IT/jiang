@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>深圳市泰博国际货运代理有限公司订舱管理</title>
+	{include file="common/meta"/}
+	<link rel="stylesheet" href="__CSS__index.css">
+</head>
+<body>
+ <a type="button" class="btn btn-primary btn-lg pull-right" href="{:url('index/bookspace/index')}">返回订舱管理表</a>
+<div class="container">	
+ 
+  <h1 class="text-center col-lg-10">深圳市泰博国际货运代理有限公司订舱录入表</h1>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+<form class="form-inline col-lg-12 "  method="post">
+  <div class="form-group col-lg-4 input-lg">
+    <label for="bookclerk" class="success">订舱员</label>
+    <input type="text" class="form-control" id="bookclerk" name="bookclerk" value="{:set_value('bookclerk')}" >
+  </div>
+  <div class="form-group col-lg-4 input-lg">
+
+       
+            <label>日期</label>
+            <!--指定 date标记-->
+            <div class='input-group date' id='datetimepicker1'>
+                <input type="text" class="form-control"   name="bookdate" value="{:set_value('bookdate')}" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+       
+    
+    <!-- <label for="exampleInputPassword1">日期</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="bookdate" 19/12/31"> -->
+  </div>
+   <div class="form-group col-lg-4  input-lg">
+    <label for="exampleInputPassword1">进程</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="bookpro" value="订舱" >
+  </div>
+  <div class="form-group col-lg-4  input-lg">
+    <label for="exampleInputPassword1">业务单号</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="servicenumber" value="{:set_value('servicenumber')}" >
+  </div>
+  <div class="form-group col-lg-4 input-lg">
+
+       
+            <label >ETDCY</label>
+            <!--指定 date标记-->
+            <div class='input-group date' id='datetimepicker2'>
+                <input type='text' class="form-control"   name="bookcydate" value="{:set_value('bookcydate')}" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+       
+    
+    <!-- <label for="exampleInputPassword1">日期</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="bookdate" placeholder="2019/12/31"> -->
+  </div>
+  <div class="form-group col-lg-4  input-lg">
+    <label for="exampleInputPassword1">20'GP</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="book20gp" value="{:set_value('book20gp')}" >
+  </div>
+  <div class="form-group col-lg-4  input-lg">
+    <label for="exampleInputPassword1">40'GP</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="book40gp" value="{:set_value('book40gp')}">
+  </div>
+  <div class="form-group col-lg-4  input-lg">
+    <label for="exampleInputPassword1">40'HQ</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="book40hq" value="{:set_value('book40hq')}">
+  </div>
+  <div class="form-group col-lg-4  input-lg">
+    <label for="exampleInputPassword1">TUE</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="booktue"value="{:set_value('booktue')}">
+  </div>
+  
+  <div class="form-group col-lg-4  input-lg">
+    <label for="exampleInputPassword1">POL</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="bookpol" value="{:set_value('bookpol')}">
+  </div>
+  <div class="form-group col-lg-4  input-lg">
+    <label for="exampleInputPassword1">POD</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="bookpod" value="{:set_value('bookpod')}">
+  </div>
+  <div class="form-group col-lg-4  input-lg">
+    <label for="exampleInputPassword1">船东</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="bookship"value="{:set_value('bookship')}" >
+  </div>
+  <div class="form-group col-lg-4  input-lg">
+    <label for="exampleInputPassword1">订舱方</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="bookside"value="{:set_value('bookside')}">
+  </div>
+  <div class="form-group col-lg-4  input-lg">
+    <label for="exampleInputPassword1">Contract</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="bookcontract"value="{:set_value('bookcontract')}">
+  </div>
+  <div class="form-group col-lg-4  input-lg">
+    <label for="exampleInputPassword1">hpl合约号</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="hpl"value="{:set_value('hpl')}" >
+  </div>
+  <div class="form-group col-lg-4 input-lg">
+    <label for="exampleInputPassword1">S/O NO</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="bookso"value="{:set_value('bookso')}">
+  </div>
+  <div class="form-group col-lg-4 input-lg">
+    <label for="exampleInputPassword1">VEL/VOY</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="bookvelvoy"value="{:set_value('bookvelvoy')}" >
+  </div>
+  
+  <div class="form-group col-lg-4 input-lg">
+      <label for="exampleInputPassword1">部门</label>
+ 
+    <select class="form-control col-lg-offset-1  "  id="exampleInputPassword1" name="bookdepart" οnchange="selectOnchang(this)" >
+
+  
+               
+                    <option value="0">请选择</option>
+                    <option value="LILY">LILY</option>
+                    <option value="FIONA">FIONA</option>
+                    <option value="JANA">JANA</option>
+                    <option value="JIM">JIM</option>
+                    <option value="TYLER">TYLER</option>
+                    <option value="YANNIS">YANNIS</option>
+
+                  </select>
+   
+            
+
+  </div>
+  <div class="form-group col-lg-4 input-lg">
+    <label for="exampleInputPassword1">业务经理</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="servicemanager" value="{:set_value('servicemanager')}">
+  </div>
+  <div class="form-group col-lg-4 input-lg">
+ 
+    <label for="exampleInputPassword1">业务员</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="serviceman"value="{:set_value('serviceman')}">
+  </div>
+  <div class="form-group col-lg-4 input-lg">
+
+    <label for="exampleInputPassword1">文件员</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="fileman"value="{:set_value('fileman')}" >
+  </div>
+  <div class="form-group col-lg-10 input-lg">
+    <label for="exampleInputPassword1">甩柜、换船ETD</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="cabinet"value="{:set_value('cabinet')}">
+  </div>
+  
+
+  
+  
+  <button type="submit"  class="btn btn-primary col-lg-4 btn-lg pull-right">录入完毕</button>
+  
+</form>
+
+</div>
+</body>
+</html>
+
+<script type="text/javascript">
+
+$(function () {
+    $('#datetimepicker1').datetimepicker({
+        format: 'YYYY-MM-DD',
+        locale: moment.locale('zh-cn')
+    });
+    $('#datetimepicker2').datetimepicker({
+        format: 'YYYY-MM-DD',
+        locale: moment.locale('zh-cn')
+    });
+  });
+</script>
+
+
+

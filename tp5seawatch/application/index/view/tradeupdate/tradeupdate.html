@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>深圳市泰博国际货运代理有限公司商务管理</title>
+	{include file="common/meta"/}
+	<link rel="stylesheet" href="__CSS__index.css">
+</head>
+<body>
+ <a type="button" class="btn btn-primary btn-lg pull-right" href="{:url('index/trade/index')}">返回商务管理表</a>
+<div class="container">	
+ 
+  <h1 class="text-center col-lg-10">深圳市泰博国际货运代理有限公司商务修改表</h1>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+<form class="form-inline col-lg-12 "  method="post">
+  <div class="form-group col-lg-4 input-lg">
+    <label for="bookclerk" class="success">业务员</label>
+    <input type="text" class="form-control" id="bookclerk" name="clerk" value="{$list.clerk}" >
+  </div>
+  <!-- <div class="form-group col-lg-4 input-lg">
+
+       
+            <label>日期</label>
+           指定 date标记-->
+            <!-- <div class='input-group date' id='datetimepicker1'>
+                <input type="text" class="form-control"   name="bookdate" value="{:set_value('bookdate')}" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div> -->
+      <!-- 'clerk' => $clerk, 
+                'referencenum' => $referencenum, 
+                
+                'bookingnum' => $bookingnum,
+                'jobnum' => $jobnum, 
+                'departurecountry' => $departurecountry,
+                'departure' => $departure,
+                'destination' => $destination,
+                'destinationcountry' => $destinationcountry,
+                'cabinettype' => $cabinettype,
+                'type20' => $type20,
+                'type40' => $type40,
+                'type45' => $type45,
+                'typehq' => $typehq,
+                'othertype' => $othertype,
+                'teu' => $teu,
+                'etdtime' => $etdtime,
+                'vevo' => $vevo,
+                'routearea' => $routearea,
+                'shipowner' => $shipowner,
+                'contractno' => $contractno,
+                'bookingstatus' => $bookingstatus,
+                'preliminary' => $preliminary, -->
+    <!-- <label for="exampleInputPassword1">日期</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="bookdate" 19/12/31"> -->
+  <!-- </div> --> 
+   <div class="form-group col-lg-4  input-lg">
+    <label for="exampleInputPassword1">所属部门</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="nowdepart" value="{$list.nowdepart} " >
+  </div>
+  <div class="form-group col-lg-4  input-lg">
+    <label for="exampleInputPassword1">隶属部门</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="nowmember" value="{$list.nowmember}" >
+  </div>
+   <!-- <div class="form-group col-lg-4 input-lg">
+
+       
+            <label >ETDCY</label>
+         指定 date标记
+            <div class='input-group date' id='datetimepicker2'>
+                <input type='text' class="form-control"   name="bookcydate" value="{:set_value('bookcydate')}" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>        
+    
+    <label for="exampleInputPassword1">日期</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="bookdate" placeholder="2019/12/31">
+  </div> -->
+  <div class="form-group col-lg-4  input-lg">
+    <label for="exampleInputPassword1">参考号</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="referencenum" value="{$list.referencenum}" >
+  </div>
+  <div class="form-group col-lg-4  input-lg">
+    <label for="exampleInputPassword1">订舱号</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="bookingnum" value="{$list.bookingnum}">
+  </div>
+  <div class="form-group col-lg-4  input-lg">
+    <label for="exampleInputPassword1">工作号</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="jobnum" value="{$list.jobnum}">
+  </div>
+  <div class="form-group col-lg-4  input-lg">
+    <label for="exampleInputPassword1">起运港国家</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="departurecountry"value="{$list.departurecountry}">
+  </div>
+  
+  <div class="form-group col-lg-4  input-lg">
+    <label for="exampleInputPassword1">起运港</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="departure" value="{$list.departure}">
+  </div>
+  <div class="form-group col-lg-4  input-lg">
+    <label for="exampleInputPassword1">目的港</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="destination" value="{$list.destination}">
+  </div>
+  <div class="form-group col-lg-4  input-lg">
+    <label for="exampleInputPassword1">目的港国家</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="destinationcountry"value="{$list.destinationcountry}" >
+  </div>
+  <div class="form-group col-lg-4  input-lg">
+    <label for="exampleInputPassword1">柜型</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="cabinettype"value="{$list.cabinettype}">
+  </div>
+  <div class="form-group col-lg-4  input-lg">
+    <label for="exampleInputPassword1">20' </label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="type20"value="{$list.type20}">
+  </div>
+  <div class="form-group col-lg-4  input-lg">
+    <label for="exampleInputPassword1"> 40'</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="type40"value="{$list.type40}" >
+  </div>
+  <div class="form-group col-lg-4 input-lg">
+    <label for="exampleInputPassword1">45'</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="type45"value="{$list.type45}">
+  </div>
+  <div class="form-group col-lg-4 input-lg">
+    <label for="exampleInputPassword1">HQ</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="typehq"value="{$list.typehq}" >
+  </div>
+  <div class="form-group col-lg-4 input-lg">
+    <label for="exampleInputPassword1">其他</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="othertype"value="{$list.othertype}" >
+  </div>
+  
+  <!-- <div class="form-group col-lg-4 input-lg">
+      <label for="exampleInputPassword1">部门</label>
+ 
+    <select class="form-control col-lg-offset-1  "  id="exampleInputPassword1" name="bookdepart" οnchange="selectOnchang(this)" >
+
+  
+               
+                    <option value="0">请选择</option>
+                    <option value="LILY">LILY</option>
+                    <option value="FIONA">FIONA</option>
+                    <option value="JANA">JANA</option>
+                    <option value="JIM">JIM</option>
+                    <option value="TYLER">TYLER</option>
+                    <option value="YANNIS">YANNIS</option>
+
+                  </select>
+   
+            
+
+  </div> -->
+  <div class="form-group col-lg-4 input-lg">
+    <label for="exampleInputPassword1">TEU </label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="teu" value="{$list.teu}">
+  </div>
+  <div class="form-group col-lg-4 input-lg">
+            <label>ETD</label>
+            <!--指定 date标记-->
+            <div class='input-group date' id='datetimepicker1'>
+                <input type="text" class="form-control"   name="etdtime" value="{:date('Y-m-d',$list.etdtime)}" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+  </div>
+    
+  <div class="form-group col-lg-4 input-lg">
+
+    <label for="exampleInputPassword1">船名航次</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="vevo"value="{$list.vevo}" >
+  </div>
+  <div class="form-group col-lg-4 input-lg">
+
+    <label for="exampleInputPassword1">航线区域</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="routearea"value="{$list.routearea}" >
+  </div>
+  <div class="form-group col-lg-4 input-lg">
+
+    <label for="exampleInputPassword1">船东名字</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="shipowner"value="{$list.shipowner}" >
+  </div>
+  <div class="form-group col-lg-4 input-lg">
+
+    <label for="exampleInputPassword1">合约号</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="contractno"value="{$list.contractno}" >
+  </div>
+  <div class="form-group col-lg-4 input-lg">
+
+    <label for="exampleInputPassword1">订舱状态</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="bookingstatus"value="{$list.bookingstatus}" >
+  </div>
+  <div class="form-group col-lg-4 input-lg">
+
+    <label for="exampleInputPassword1">预审</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="preliminary"value="{$list.preliminary}" >
+  </div>
+
+
+  
+  
+  <button type="submit"  class="btn btn-primary col-lg-4 btn-lg pull-right">修改完毕</button>
+  
+</form>
+
+</div>
+</body>
+</html>
+
+<script type="text/javascript">
+
+$(function () {
+    $('#datetimepicker1').datetimepicker({
+        format: 'YYYY-MM-DD',
+        locale: moment.locale('zh-cn')
+    });
+    $('#datetimepicker2').datetimepicker({
+        format: 'YYYY-MM-DD',
+        locale: moment.locale('zh-cn')
+    });
+  });
+</script>
+
+
+

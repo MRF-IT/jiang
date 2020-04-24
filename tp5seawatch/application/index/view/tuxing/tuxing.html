@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    {include file="common/meta"/}
+    <style>
+    #main1{
+        width: 1000px; height: 600px;
+        border:1px solid #999;
+        margin:100px 200px;
+    }
+    #main2{
+        width: 1000px; height: 600px;
+        border:1px solid #999;
+        margin:100px 200px;
+    }
+    #main3{
+        width: 1000px; height: 600px;
+        border:1px solid #999;
+        margin:100px 200px;
+    }
+</style>
+</head>
+
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+
+<a href="{:url('echarts/index')}"><button type="button" class="btn btn-primary btn-lg active pull-right">柱状图分析</button></a>
+    <div class="container">
+
+
+        <h1 class="col-sm-12 text-center">深圳市泰博国际货运代理有限公司</h1>
+        <form  action="{:url('tuxing/index')}" method="post">
+
+
+            <!-- <div class='col-sm-6'>
+                <div class="form-group">
+                    <label>按年份选择：</label>
+                    <!指定 date标记-->
+                    
+                    <div class='col-sm-6'>
+                        <div class="form-group">
+                            <label>按ETD起始日期：</label>
+                            <!--指定 date标记-->
+                            <div class='input-group date' id='datetimepicker5'>
+                                <input type='text' class="form-control" name="startday" />
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='col-sm-6'>
+                        <div class="form-group">
+                            <label>结束日期：</label>
+                            <!--指定 date标记-->
+                            <div class='input-group date' id='datetimepicker6'>
+                                <input type='text' class="form-control" name="endday" />
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+
+
+
+
+
+                    <div class="col-md-2">
+                        <button class="btn btn-primary btn-lg btn-block" type="submit">搜索</button>  
+                    </div>
+
+                    
+                </form>
+                
+                <div  style="width: 600px;height:200px;"></div>
+                <div id="main1"  ></div>
+                <div id="main2"  ></div>
+                <div id="main3"  ></div>
+
+            </div>
+            <div class="form-group col-md-2 pull-right">
+               <a type="button" class="btn btn-primary btn-lg" href="{:url('index/index/index')}">返回首页</a>
+           </div>
+           
+       </body>
+       </html>
+       <script type="text/javascript">
+
+        $(function () {
+
+            
+            $('#datetimepicker5').datetimepicker({
+                format: 'YYYY-MM-DD',
+                locale: moment.locale('zh-cn')
+            });
+            $('#datetimepicker6').datetimepicker({
+                format: 'YYYY-MM-DD',
+                locale: moment.locale('zh-cn')
+            });
+
+        });
+
+
+    </script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main1'));
+
+        // 指定图表的配置项和数据
+        var    option = {
+                        title: {
+                            text: '{$title}'
+                        },
+                        tooltip: {
+                            trigger: 'axis',
+                            axisPointer: {
+                                type: 'cross',
+                                label: {
+                                    backgroundColor: '#6a7985'
+                                }
+                            }
+                        },
+                        legend: {
+                             data: {$shiparray|raw},
+                        },
+                        toolbox: {
+                            feature: {
+                                saveAsImage: {}
+                            }
+                        },
+                        grid: {
+                            left: '3%',
+                            right: '4%',
+                            bottom: '3%',
+                            containLabel: true
+                        },
+                        xAxis: {
+                            type: 'category',
+                            boundaryGap: false,
+                            data: ['周一', '周二', '周三', '周四', '周五','周六','周日']
+                        },
+                        yAxis: {
+                            type: 'value'
+                        },
+                        series:{$data|raw} 
+                    };
+
+        /// 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main2'));
+
+        // 指定图表的配置项和数据
+        var    option = {
+                        title: {
+                            text: '{$titles}'
+                        },
+                        tooltip: {
+                            trigger: 'axis',
+                            axisPointer: {
+                                type: 'cross',
+                                label: {
+                                    backgroundColor: '#6a7985'
+                                }
+                            }
+                        },
+                        legend: {
+                             data: {$servicearray|raw},
+                        },
+                        toolbox: {
+                            feature: {
+                                saveAsImage: {}
+                            }
+                        },
+                        grid: {
+                            left: '3%',
+                            right: '4%',
+                            bottom: '3%',
+                            containLabel: true
+                        },
+                        xAxis: {
+                            type: 'category',
+                            boundaryGap: false,
+                            data: ['周一', '周二', '周三', '周四', '周五','周六','周日']
+                        },
+                        yAxis: {
+                            type: 'value'
+                        },
+                        series:{$datay|raw} 
+                    };
+
+        /// 使用刚指定的配置项和数据显示图表
+
+    
+
+    
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main3'));
+
+        // 指定图表的配置项和数据
+    var    option = {
+                        title: {
+                            text: '{$titlesm}'
+                        },
+                        tooltip: {
+                            trigger: 'axis',
+                            axisPointer: {
+                                type: 'cross',
+                                label: {
+                                    backgroundColor: '#6a7985'
+                                }
+                            }
+                        },
+                        legend: {
+                             data: {$servicemarray|raw},
+                        },
+                        toolbox: {
+                            feature: {
+                                saveAsImage: {}
+                            }
+                        },
+                        grid: {
+                            left: '3%',
+                            right: '4%',
+                            bottom: '3%',
+                            containLabel: true
+                        },
+                        xAxis: {
+                            type: 'category',
+                            boundaryGap: false,
+                            data: ['周一', '周二', '周三', '周四', '周五','周六','周日']
+                        },
+                        yAxis: {
+                            type: 'value'
+                        },
+                        series:{$dataym|raw} 
+                    };
+
+        /// 使用刚指定的配置项和数据显示图表
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+    

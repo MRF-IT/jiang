@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>深圳市泰博国际货运代理有限公司商务管理 </title>
+	{include file="common/meta"/}
+	<link rel="stylesheet" href="__CSS__index.css">
+
+    
+</head>
+<body>
+	
+	<a href="{:url('add/indextrade')}"><button type="button" class="btn btn-primary btn-lg active pull-right">商务录入</button></a>
+	<form class="row form-inline" action="{:url('search/trade')}" method="post">
+		
+<div class="container">
+
+			<h1 class="text-center">深圳市泰博国际货运代理有限公司商务管理</h1>
+
+			
+		<div class='col-sm-2'>
+				<div class="form-group">
+					<label>按ETD选择日期：</label>
+					<!--指定 date标记-->
+					<div class='input-group date' id='datetimepicker1'>
+						<input type='text' class="form-control" name="startday" />
+						<span class="input-group-addon">
+							<span class="glyphicon glyphicon-calendar"></span>
+						</span>
+					</div>
+				</div>
+			</div>
+			<div class='col-sm-2'>
+				<div class="form-group">
+					<label>选择日期：</label>
+					<!--指定 date标记-->
+					<div class='input-group date' id='datetimepicker2'>
+						<input type='text' class="form-control" name="endday" />
+						<span class="input-group-addon">
+							<span class="glyphicon glyphicon-calendar"></span>
+						</span>
+					</div>
+				</div>
+			</div>
+
+			
+
+			
+			<div class="col-md-2">
+				<input type="text" placeholder="按船东" value="" name="shipowner" class="input-lg form-control-2">
+
+
+			</div>
+
+
+			
+			<div class="col-md-2">
+				<input type="text" placeholder="按目的港" value="" name="destination" class="input-lg form-control-2">
+
+
+			</div>
+			<div class="col-md-2">
+				<input type="text" placeholder="按目的港国家" value="" name="destinationcountry" class="input-lg form-control-2">
+
+
+			</div>
+			<div class="col-md-2">
+				<input type="text" placeholder="按起运港" value="" name="departure" class="input-lg form-control-2">
+
+
+			</div>
+			<div class="col-md-2">
+				<input type="text" placeholder="按起运港国家" value="" name="departurecountry" class="input-lg form-control-2">
+
+
+			</div>
+			<div class="col-md-1">
+				<input type="text" placeholder="按区域" value="" name="routearea" class="input-lg form-control-2">
+
+
+			</div>
+			<div class="col-md-2">
+				<input type="text" placeholder="按订舱状态" value="" name="bookingstatus" class="input-lg form-control-2">
+
+
+			</div>
+			<div class="col-md-2">
+				<input type="text" placeholder="按审核" value="" name="preliminary" class="input-lg form-control-2">
+
+
+			</div>
+
+
+			<div class="col-md-1">
+				<button class="btn btn-primary btn-lg btn-block" type="submit">搜索</button>  
+			</div>
+
+			<div class="form-group col-md-2 pull-left">
+				<label for="exampleInputPassword2">柜量</label>
+				<input type="text" class="form-control" id="exampleInputPassword2" name="cabinettype"  value="{$total}">
+			</div>
+			<div class="form-group col-md-2 pull-left ">
+
+				<label for="exampleInputPassword1">T量</label>
+				<input type="text" class="form-control" id="exampleInputPassword1" name="teu" value="{$sumtue}">
+
+			</div>
+
+</div>
+		
+		<div class="form-group col-md-1 pull-right">
+			<a type="button" class="btn btn-primary btn-lg" href="{:url('index/index/index')}">返回首页</a>
+		</div>
+
+
+
+		<div class="panel-body">
+
+			<table class="table table-striped table-bordered table-hover dataTable">
+				<tr class="success">
+					<th class="warning text-warning"><strong>业务员</strong></th>
+					
+					<th class="warning text-warning"><strong>所属部门</strong></th>
+					<th class="warning text-warning"><strong>隶属部门</strong></th>
+				
+					<th class="text-primary"><strong>参考号</strong></th>
+							
+					<th class="text-primary"><strong>订舱号</strong></th>
+					<th class="text-primary"><strong>工作号</strong></th>	
+					<th class="danger text-warning"><strong>起运港国家</strong></th>		
+					<th class="danger text-warning"><strong>起运港</strong></th>	
+					<th class="danger text-warning"><strong>目的港</strong></th>	
+					<th class="text-primary"><strong>目的港国家</strong></th>	
+					<th class="text-primary"><strong>柜型</strong></th>		
+					<th class="text-primary"><strong>20'</strong></th>		
+					<th class="text-primary"><strong>40'</strong></th>		
+					<th class="text-primary"><strong>45'</strong></th>		
+					<th class="text-primary"><strong>HQ	</strong></th>		
+					<th class="text-primary"><strong>其他	</strong></th>		
+						
+					<th class="text-primary"><strong>TEU</strong></th>		
+							
+					<th class="text-primary"><strong>ETD</strong></th>			
+					<th class="text-primary"><strong>船名航次</strong></th>			
+					<th class="text-primary"><strong>航线区域</strong></th>			
+					<th class="text-primary"><strong>船东名字</strong></th>			
+					<th class="text-primary"><strong>合约号</strong></th>				
+					<th class="text-primary"><strong>订舱状态</strong></th>			
+					<th class="text-primary"><strong>预审</strong></th>			
+						
+					<th class="text-primary"><strong>操作</strong></th>		
+				</tr>
+				{foreach $tradelist as $v}
+				<tr class="active">
+					<th>{$v.clerk}</th>
+					
+					<th>{$v.nowdepart}</th>
+					<th>{$v.nowmember}</th>	
+					<th class="text-danger">{$v.referencenum}</th>			
+					<th class="text-danger">{$v.bookingnum}</th>			
+					<th class="text-danger">{$v.jobnum}</th>			
+					<th>{$v.departurecountry}</th>			
+					<th>{$v.departure}</th>			
+					<th>{$v.destination}</th>			
+						
+					<th>{$v.destinationcountry}</th>			
+					<th>{$v.cabinettype}</th>			
+					<th>{$v.type20}</th>			
+					<th>{$v.type40}</th>			
+					<th>{$v.type45}</th>			
+					<th>{$v.typehq}</th>			
+					<th>{$v.othertype}</th>			
+					<th>{$v.teu}</th>			
+					<th>{$v.etdtime?(date('Y-m-d',$v.etdtime)):''}</th>			
+					<th>{$v.vevo}</th>
+					<th>{$v.routearea}</th>					
+					<th>{$v.shipowner}</th>			
+					<th>{$v.contractno}</th>			
+								
+					
+					<th>{$v.bookingstatus}</th>
+					<th>{$v.preliminary}</th>
+					<th><a href="{:url('add/tradeupdate',['tradeid'=>$v.tradeid])}" class="btn btn-primary " name="tradeid">修改</a>	
+						<button type="button" class="btn btn-danger " data-toggle="modal" data-target="#myModal">
+							 删除
+							</button>
+
+							<!-- Modal -->
+							<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+							  <div class="modal-dialog" role="document">
+							    <div class="modal-content">
+							      <div class="modal-header">
+							        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							        <h4 class="modal-title" id="myModalLabel">您好</h4>
+							      </div>
+							      <div class="modal-body">
+							       确定要删除么？
+							      </div>
+							      <div class="modal-footer">
+							        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+							       <a href="{:url('add/tradedelete',['tradeid'=>$v.tradeid])}"  name="tradeid"> <button type="button" class="btn btn-danger">确定</button></a>
+							      </div>
+							    </div>
+							  </div>
+							</div>
+
+						
+					</th>		
+
+								
+				
+						
+					
+
+				</tr>
+				{/foreach}
+
+				
+				
+			</table>
+
+
+			<div class="pull-right">
+				{$page|raw}
+			</div>
+
+		</div>
+
+	</form>
+	
+
+</body>
+</html>
+
+<script type="text/javascript">
+
+
+	$(function () {
+		$('#datetimepicker1').datetimepicker({
+			format: 'YYYY-MM-DD',
+			locale: moment.locale('zh-cn')
+		});
+		$('#datetimepicker2').datetimepicker({
+			format: 'YYYY-MM-DD ',
+			locale: moment.locale('zh-cn')
+		});
+	});
+
+</script>

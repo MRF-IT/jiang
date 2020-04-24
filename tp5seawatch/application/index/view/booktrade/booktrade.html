@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>深圳市泰博国际货运代理有限公司商务管理 </title>
+	{include file="common/meta"/}
+	<link rel="stylesheet" href="__CSS__index.css">
+
+    
+</head>
+<body>
+	
+	<a href="{:url('add/indextrade')}"><button type="button" class="btn btn-primary btn-lg active pull-right">商务录入</button></a>
+	<form class="row form-inline" action="{:url('search/index')}" method="post">
+		
+
+
+			<h1 class="text-center">深圳市泰博国际货运代理有限公司商务管理</h1>
+
+			
+		
+
+		
+		<div class="form-group col-md-1 pull-right">
+			<a type="button" class="btn btn-primary btn-lg" href="{:url('index/index/index')}">返回首页</a>
+		</div>
+
+
+
+		<div class="panel-body">
+
+			<table class="table table-striped table-bordered table-hover dataTable">
+				<tr class="success">
+					<th class="warning text-warning"><strong>Contract.no</strong></th>
+					<th class="text-primary"><strong>Date</strong></th>
+							
+					<th class="text-primary"><strong>Carrier</strong></th>
+					<th class="text-primary"><strong>Region</strong></th>	
+					<th class="danger text-warning"><strong>Status 1</strong></th>		
+					<th class="danger text-warning"><strong>Status 2</strong></th>	
+					<th class="danger text-warning"><strong>Carrier SO</strong></th>	
+					<th class="text-primary"><strong>HPL REF NO.</strong></th>	
+					<th class="text-primary"><strong>MRF REF NO.</strong></th>		
+					<th class="text-primary"><strong>商务/业务</strong></th>		
+							
+					<th class="text-primary"><strong>PRC REF NO.</strong></th>			
+					<th class="text-primary"><strong>POL</strong></th>			
+					<th class="text-primary"><strong>POD</strong></th>			
+					<th class="text-primary"><strong>20GP</strong></th>			
+					<th class="text-primary"><strong>40GP</strong></th>
+					<th class="text-primary"><strong>40HQ</strong></th>				
+					<th class="text-primary"><strong>Other</strong></th>			
+					<th class="text-primary"><strong>TEU</strong></th>			
+					<th class="text-primary"><strong>Weight</strong></th>			
+					<th class="text-primary"><strong>Commodity</strong></th>			
+					<th class="text-primary"><strong>F/V ETD</strong></th>			
+					<th class="text-primary"><strong>M/V ETD</strong></th>			
+					<th class="text-primary"><strong>Week</strong></th>			
+					<th class="text-primary"><strong>Month</strong></th>		
+					<th class="text-primary"><strong>Service</strong></th>		
+					<th class="text-primary"><strong>VEL/VOY</strong></th>		
+					<th class="text-primary"><strong>PIC</strong></th>		
+					<th class="text-primary"><strong>Mgr</strong></th>		
+					<th class="text-primary"><strong>Dept</strong></th>		
+					<th class="text-primary"><strong>Remark</strong></th>		
+					<th class="danger text-warning"><strong>Booking Agent</strong></th>		
+					<th class="danger text-warning"><strong>Operator</strong></th>		
+					<th class="danger text-warning"><strong>Contract</strong></th>		
+					<th class="danger text-warning"><strong>Document clerk</strong></th>		
+					<th class="text-primary"><strong>操作</strong></th>		
+				</tr>
+				
+				{foreach $list as $v}
+				<tr class="active">
+					<th>{$v.bookcontractno}</th>
+					<th>{:date('m-d',$v.bookdate)}</th>
+					<th>{$v.bookcarrier}</th>
+					<th>{$v.bookregion}</th>	
+					<th class="text-danger">{$v.bookstatus1}</th>			
+					<th class="text-danger">{$v.bookstatus2}</th>			
+					<th class="text-danger">{$v.bookcarrierso}</th>			
+					<th>{$v.bookhpl}</th>			
+					<th>{$v.bookrefno}</th>			
+					<th>{$v.bookts}</th>			
+						
+					<th>{$v.bookprcno}</th>			
+					<th>{$v.bookpol}</th>			
+					<th>{$v.bookpod}</th>			
+					<th>{$v.book20}</th>			
+					<th>{$v.book40}</th>
+					<th>{$v.book40hq}</th>					
+					<th>{$v.bookother}</th>			
+					<th>{$v.booktue}</th>			
+					<th>{$v.bookweight}</th>			
+					<th>{$v.bookcommodity}</th>			
+					<th>{$v.bookfvetd?(date('m-d',$v.bookfvetd)):''}</th>			
+								
+					<th>{:date('m-d',$v.bookmvetd)}</th>
+					<td>{$v.bookweek}</td>
+								
+					<th>{$v.bookmonth}</th>		
+					<th>{$v.bookservice}</th>		
+					<th>{$v.bookvelvoy}</th>		
+					<th>{$v.bookpic}</th>		
+					<th>{$v.bookmgr}</th>		
+					<th>{$v.bookdept}</th>		
+					<th>{$v.bookremark}</th>		
+					<th class="text-danger">{$v.bookagent}</th>		
+					<th class="text-danger">{$v.bookoperator}</th>		
+					<th class="text-danger">{$v.bookcontract}</th>		
+					<th class="text-danger">{$v.bookdocclerk}</th>		
+						
+					
+
+				</tr>
+				{/foreach}
+			</table>
+
+
+			<div class="pull-right">
+				{$page|raw}
+			</div>
+
+		</div>
+
+	</form>
+	
+
+</body>
+</html>
+
+<script type="text/javascript">
+
+
+	$(function () {
+		$('#datetimepicker1').datetimepicker({
+			format: 'YYYY-MM-DD',
+			locale: moment.locale('zh-cn')
+		});
+		$('#datetimepicker2').datetimepicker({
+			format: 'YYYY-MM-DD ',
+			locale: moment.locale('zh-cn')
+		});
+	});
+
+</script>

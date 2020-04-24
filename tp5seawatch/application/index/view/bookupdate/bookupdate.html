@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>深圳市泰博国际货运代理有限公司订舱管理</title>
+	{include file="common/meta"/}
+	<link rel="stylesheet" href="__CSS__index.css">
+</head>
+<body>
+<div class="container">	
+  
+  <h1 class="text-center col-lg-10">深圳市泰博国际货运代理有限公司订舱修改表</h1>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+<form class="form-inline col-lg-12 "  method="post">
+  <div class="form-group col-lg-4 input-lg">
+    <label for="exampleInputEmail1" class="success">订舱员</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" name="bookclerk" value="{$list.bookclerk}">
+  </div>
+  <div class="form-group col-lg-4 input-lg">
+
+       
+            <label >日期</label>
+            <!--指定 date标记-->
+            <div class='input-group date' id='datetimepicker1'>
+                <input type='text' class="form-control"   name="bookdate" value="{:date('Y-m-d',$list.bookdate)}"/>
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+       
+    
+    <!-- <label for="exampleInputPassword1">日期</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="bookdate" 19/12/31"> -->
+  </div>
+   <div class="form-group col-lg-4  input-lg">
+    <label for="exampleInputPassword1">进程</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="bookpro" value="{$list.bookpro}">
+  </div>
+  <div class="form-group col-lg-4  input-lg">
+    <label for="exampleInputPassword1">业务单号</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="servicenumber" value="{$list.servicenumber}">
+  </div>
+  <div class="form-group col-lg-4 input-lg">
+
+       
+            <label >CY</label>
+            <!--指定 date标记-->
+            <div class='input-group date' id='datetimepicker2'>
+                <input type='text' class="form-control"   name="bookcydate" value="{:date('Y-m-d',$list.bookcydate)}" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+       
+    
+    <!-- <label for="exampleInputPassword1">日期</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="bookdate" placeholder="2019/12/31"> -->
+  </div>
+  <div class="form-group col-lg-4  input-lg">
+    <label for="exampleInputPassword1">20'GP</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="book20gp" value="{$list.book20gp}" >
+  </div>
+  <div class="form-group col-lg-4  input-lg">
+    <label for="exampleInputPassword1">40'GP</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="book40gp" value="{$list.book40gp}" >
+  </div>
+  <div class="form-group col-lg-4  input-lg">
+    <label for="exampleInputPassword1">40'HQ</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="book40hq" value="{$list.book40hq}"  >
+  </div>
+  <div class="form-group col-lg-4  input-lg">
+    <label for="exampleInputPassword1">TUE</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="booktue" value="{$list.booktue}" >
+  </div>
+  <div class="form-group col-lg-4  input-lg">
+    <label for="exampleInputPassword1">POL</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="bookpol"  value="{$list.bookpol}">
+  </div>
+  <div class="form-group col-lg-4  input-lg">
+    <label for="exampleInputPassword1">POD</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="bookpod" value="{$list.bookpod}" >
+  </div>
+  <div class="form-group col-lg-4  input-lg">
+    <label for="exampleInputPassword1">船东</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="bookship" value="{$list.bookship}" >
+  </div>
+  <div class="form-group col-lg-4  input-lg">
+    <label for="exampleInputPassword1">订舱方</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="bookside" value="{$list.bookside}">
+  </div>
+  <div class="form-group col-lg-4  input-lg">
+    <label for="exampleInputPassword1">Contract</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="bookcontract" value="{$list.bookcontract}">
+  </div>
+  <div class="form-group col-lg-4  input-lg">
+    <label for="exampleInputPassword1">hpl合约号</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="hpl" value="{$list.hpl}">
+  </div>
+  <div class="form-group col-lg-4 input-lg">
+    <label for="exampleInputPassword1">S/O NO</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="bookso"  value="{$list.bookso}">
+  </div>
+  <div class="form-group col-lg-4 input-lg">
+    <label for="exampleInputPassword1">VEL/VOY</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="bookvelvoy" value="{$list.bookvelvoy}">
+  </div>
+  
+  <div class="form-group col-lg-4 input-lg">
+      <label for="exampleInputPassword1">部门</label>
+ 
+    <select class="form-control col-lg-offset-1  "  id="exampleInputPassword1" name="bookdepart"  οnchange="selectOnchang(this)" >
+
+  
+                <option>{$list.bookdepart}</option>
+                <option> LILY </option>
+            
+                <option>FIONA</option>
+                <option>JANA</option>
+                <option>JIM</option>
+                <option>TYLER</option>
+                <option>YANNIS</option>
+                <option>NIYA</option>
+
+              
+            </select>
+            
+
+  </div>
+  <div class="form-group col-lg-4 input-lg">
+    <label for="exampleInputPassword1">业务经理</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="servicemanager" value="{$list.servicemanager}">
+  </div>
+  <div class="form-group col-lg-4 input-lg">
+ 
+    <label for="exampleInputPassword1">业务员</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="serviceman" value="{$list.serviceman}">
+  </div>
+  <div class="form-group col-lg-4 input-lg">
+
+    <label for="exampleInputPassword1">文件员</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="fileman" value="{$list.fileman}">
+  </div>
+  <div class="form-group col-lg-10 input-lg">
+    <label for="exampleInputPassword1">甩柜、换船ETD</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="cabinet" value="{$list.cabinet}">
+  </div>
+  
+
+  
+  
+  <button type="submit" class="btn btn-primary col-lg-4 btn-lg pull-right">修改完毕</button>
+</form>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+  
+
+
+$(function () {
+    $('#datetimepicker1').datetimepicker({
+        format: 'YYYY-MM-DD',
+        locale: moment.locale('zh-cn')
+    });
+    $('#datetimepicker2').datetimepicker({
+        format: 'YYYY-MM-DD',
+        locale: moment.locale('zh-cn')
+    });
+  });
+</script>

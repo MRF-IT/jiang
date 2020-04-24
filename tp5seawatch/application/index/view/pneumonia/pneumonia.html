@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>深圳市泰博国际货运代理有限公司肺炎防疫排查表</title>
+	{include file="common/meta"/}
+	<link rel="stylesheet" href="__CSS__index.css">
+
+
+</head>
+<body>
+	
+ 
+	<div class="container">
+		<h1 class="col-sm-offset-2 text-center">深圳市泰博国际货运代理有限公司肺炎防疫排查表</h1>
+		<form class="form-horizontal" action="{:url('pneumonia/index')}" method="post">
+
+  <div class="form-group">
+ 
+    <label for="inputEmail3" class="col-sm-2 control-label">姓名</label>
+
+    <div class="col-sm-10">
+      <input type="text" name="username" class="form-control col-sm-6" id="inputEmail3" >
+      <p style="color:red;">{$check.username??''}</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">英文名</label> 	
+    <div class="col-sm-10">
+      <input type="text" name="englishname" class="form-control col-sm-6" id="inputEmail3" >
+      <p style="color:red;">{$check.englishname??''}</p>
+    </div>
+  </div>
+  <div class="form-group   col-sm-4">
+	
+	<h6 class=" col-sm-offset-7">请选择部门：</h6>
+    <select class="form-control col-sm-offset-7 " name="depart" οnchange="selectOnchang(this)" >
+
+	
+                <option>  </option>
+
+             {foreach $list as $v}
+                <option>{$v.departname}</option>
+
+               {/foreach}
+
+            </select>
+            <p class=" col-sm-offset-7" style="color:red;">{$check.depart??''}</p>
+
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+    	1.请问您是否离开过公司所在地？
+      <div class="radio">
+        <label>
+          <input type="radio" name="optionsz" value="1" checked > 是
+        </label>
+      </div>
+      <div class="radio ">
+        <label>
+          <input type="radio" name="optionsz"  value="0" > 否
+        </label>
+      </div>
+
+
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+    	2.请问您的健康状况如何？
+      <div class="radio">
+        <label>
+          <input type="radio" name="healthy" value="1" checked > 良好
+        </label>
+      </div>
+      <div class="radio ">
+        <label>
+          <input type="radio" name="healthy" value="0"  > 有疑似症状（发热、乏力、呼吸困难）
+        </label>
+      </div>
+
+
+    </div>
+  </div>
+   <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+    	3.请问您在公司所在地居住的小区是否发生疫情病例？
+      <div class="radio">
+        <label>
+          <input type="radio" name="pneumonia" value="1" > 是
+        </label>
+      </div>
+      <div class="radio ">
+        <label>
+          <input type="radio" name="pneumonia" value="0"  checked> 否
+        </label>
+      </div>
+
+
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+    	4.请问您有测量过体温吗？（如无测量、36.5度）
+      <div class="text">
+        <label>
+          <input type="text" name="temperature" class="form-control col-sm-6" > 
+          <p style="color:red;">{$check.temperature??''}</p>
+        </label>
+      </div>
+
+
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+    	5.填表日期？
+      <div class="text " >
+
+      	<label>
+        <input type='text' class="form-control  " id='datetimepicker3' name="bookday" />
+						<span class="input-group-addon ">
+							<span class="glyphicon glyphicon-calendar"></span>
+						</span>
+		</label>
+    <p style="color:red;">{$check.bookday??''}</p>
+      </div>
+      
+
+    </div>
+    
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+    	6.请问您年休假的去向是？（如云南大理、湖南永州等）
+      <div class="text">
+        <label>
+          <input type="text" name="place" class="form-control col-sm-6" > 
+          <p style="color:red;">{$check.place??''}</p>
+        </label>
+      </div>
+      
+
+
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+    	7.请问您现在在何地？（如云南大理、湖南永州等）
+      <div class="text">
+        <label>
+          <input type="text" name="placem" class="form-control col-sm-6" > 
+          <p style="color:red;">{$check.placem??''}</p>
+        </label>
+      </div>
+      
+
+
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+    	8.请问您何时回公司所在地或计划何时回公司所在地？
+      <div class="text " >
+      	<label>
+        <input type='text' class="form-control  " id='datetimepicker2' name="goday" />
+						<span class="input-group-addon ">
+							<span class="glyphicon glyphicon-calendar"></span>
+						</span>
+		</label>
+    <p style="color:red;">{$check.goday??''}</p>
+    
+      </div>
+      
+
+    </div>
+
+  </div>
+   <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+    	9.请问您是否到过湖北省？
+      <div class="radio">
+        <label>
+          <input type="radio" name="optionhb" value="1" > 是
+        </label>
+      </div>
+      <div class="radio ">
+        <label>
+          <input type="radio" name="optionhb"  value="0" checked> 否
+        </label>
+      </div>
+
+
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+    	10.请问您何时离开湖北或现在在湖北计划何时离开湖北？
+      <div class="text " >
+      	<label>
+        <input type='text' class="form-control  " id='datetimepicker1' name="leaveday" />
+						<span class="input-group-addon ">
+							<span class="glyphicon glyphicon-calendar"></span>
+						</span>
+		</label>
+      </div>
+      
+
+    </div>
+    
+  </div>
+   <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+    	11.请问您14天内是否与湖北省等重点防护地区人员有过紧密接触？
+      <div class="radio">
+        <label>
+          <input type="radio" name="optionjc" value="1" > 是
+        </label>
+      </div>
+      <div class="radio ">
+        <label>
+          <input type="radio" name="optionjc" value="0"  checked> 否
+        </label>
+      </div>
+
+
+    </div>
+  </div>
+   <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+    	12.请问您14天内是否接触过被确诊为新型肺炎或疑似病例人员？
+      <div class="radio">
+        <label>
+          <input type="radio" name="optionbin" value="1" > 是
+        </label>
+      </div>
+      <div class="radio ">
+        <label>
+          <input type="radio" name="optionbin"  value="0" checked> 否
+        </label>
+      </div>
+
+
+    </div>
+  </div>
+  
+ <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      13.请问您今天外出了么？外出去了哪？（如附近超市），接触了什么人？（如一切正常）
+      <div class="text">
+        <label>
+          <input type="text" name="outdoors" class="form-control col-sm-6" > 
+          <p style="color:red;">{$check.outdoors??''}</p>
+        </label>
+      </div>
+      
+
+
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      14.请问您的个人口罩的型号?（n95/kn95/医用一次性/其他）
+      <div class="text">
+        <label>
+          <input type="text" name="mask" class="form-control col-sm-6" > 
+          <p style="color:red;">{$check.mask??''}</p>
+        </label>
+      </div>
+      
+
+
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      15.请问您的个人口罩的数量?
+      <div class="text">
+        <label>
+          <input type="text" name="masknum" class="form-control col-sm-6" > 
+          <p style="color:red;">{$check.masknum??''}</p>
+        </label>
+      </div>
+      
+
+
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      16.请问您上班需要领口罩吗?
+      <div class="radio">
+        <label>
+          <input type="radio" name="lmask" value="1"  checked > 是
+        </label>
+      </div>
+      <div class="radio ">
+        <label>
+          <input type="radio" name="lmask"  value="0"> 否
+        </label>
+      </div>
+
+
+
+    </div>
+  </div>
+  
+  <div class="form-group  ">
+    <div class=" col-sm-offset-2 col-sm-3">
+      <button type="submit" class="btn btn-primary">提交</button>
+    </div>
+  </div>
+</form>
+	</div>
+</body>
+</html>	<script type="text/javascript">
+
+
+	$(function () {
+		$('#datetimepicker1').datetimepicker({
+			format: 'YYYY-MM-DD',
+			locale: moment.locale('zh-cn')
+		});
+		$('#datetimepicker2').datetimepicker({
+			format: 'YYYY-MM-DD ',
+			locale: moment.locale('zh-cn')
+		});
+		$('#datetimepicker3').datetimepicker({
+			format: 'YYYY-MM-DD ',
+			locale: moment.locale('zh-cn')
+		});
+	});
+
+</script>

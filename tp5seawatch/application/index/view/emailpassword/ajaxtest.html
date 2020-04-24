@@ -1,0 +1,340 @@
+<!-- <!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="GBK">
+
+<script>
+
+function load()
+
+{
+
+var xmlhttp;
+
+if (window.XMLHttpRequest)
+
+{
+
+//  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+
+xmlhttp=new XMLHttpRequest();
+
+}
+
+else
+
+{
+
+// IE6, IE5 浏览器执行代码
+
+xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+
+}
+
+xmlhttp.onreadystatechange=function()
+
+{
+
+if (xmlhttp.readyState==4 && xmlhttp.status==200)
+
+{
+
+document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+
+}
+
+}
+
+xmlhttp.open("POST","Access-Control-Allow-Origin:https://api.exmail.qq.com/cgi-bin/user/create?access_token=8_xj_n-Rz-dC2Z04lXYAp5v-ACeUfuZcK5ul3EU7JxKN3M6Lt-ZWy7K7Q0gFaKKgRpZPAXBJR9w4qM0-8S11Wg",true);
+
+xmlhttp.send();
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<div id="myDiv">
+
+<h2>ajax请求成功了吗？</h2>
+
+<button type="button" onclick="load()">点击我可以查看呦</button>
+
+</div>
+
+</body>
+
+</html> -->
+
+<html>
+<head>
+	{include file="common/meta"/}
+	<link rel="stylesheet" href="__CSS__index.css">
+	
+	
+	<script type="text/javascript" >
+		
+   function createXmlHttp() {
+	var xmlHttp = null;
+	
+	try {
+		//Firefox, Opera 8.0+, Safari
+		xmlHttp = new XMLHttpRequest();
+	} catch (e) {
+		//IE
+		try {
+			xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
+		} catch (e) {
+			xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+	}
+	
+	return xmlHttp;
+}
+ 
+function submitForm(formId, tipId) {
+	var xmlHttp = createXmlHttp();
+	if(!xmlHttp) {
+		alert("您的浏览器不支持AJAX！");
+		return 0;
+	}
+	
+	var e = document.getElementById(formId);
+	var tip = document.getElementById(tipId);
+	var url = e.action;
+	var inputs = e.elements;
+	// var postData = "";
+	// for(var i=0; i<inputs.length; i++) {
+	// 	switch(inputs[i].type) {
+	// 		case "text":
+	// 			postData += inputs[i].name + "=" + inputs[i].value + "&";
+	// 		break;
+	// 		case "password":
+	// 			postData += inputs[i].name + "=" + inputs[i].value + "&";
+	// 		break;
+	// 		case "radio":
+	// 			if(inputs[i].checked) {
+	// 				postData += inputs[i].name + "=" + inputs[i].value + "&";
+	// 			}
+	// 		break;
+	// 		case "checkbox":
+	// 			if(inputs[i].checked) {
+	// 				postData += inputs[i].name + "=" + inputs[i].value + "&";
+	// 			}
+	// 		break;
+	// 		default:
+	// 			continue;
+	// 	}
+	// }
+	
+	// postData += "t=" + Math.random();
+	var datalist='{'+'"'+inputs[0].name+'":'+'"'+inputs[0].value+'",'+'"'+inputs[1].name+'":'+inputs[1].value+','+'"'+inputs[3].name+'":'+'"'+inputs[3].value+'",'+'"'+inputs[5].name+'":'+inputs[5].value+'}';
+	
+	
+
+	var data='{"userid":"chart@jiazelogistics.com","enable":1,"password":"Jz445566","cpwd_login":0}';
+
+	xmlHttp.open("POST", url, true);
+	xmlHttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); 
+
+	xmlHttp.onreadystatechange = function() {
+		
+		if(xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+			gettoken= xmlHttp.responseText;
+			
+		}
+	}
+
+	xmlHttp.send(datalist);
+	
+}
+
+
+
+
+
+
+	</script>
+	<script type="text/javascript" >
+       function gettoken(){
+       
+       	var url="https://api.exmail.qq.com/cgi-bin/gettoken?corpid=ww921a4970fdb80915&corpsecret=21IMFXF4U-ojj3INDsVGl6TLTmE6TFP8iYIWJiz03sTGuYukyOLKerUFch938Dxd";
+       	var xmlHttp = new XMLHttpRequest();
+
+       	xmlHttp.open("GET", url, true);
+
+       	xmlHttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+       
+ 	
+		xmlHttp.onreadystatechange = function() {
+			
+		if(xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+			gettoken = xmlHttp.responseText;
+
+			
+		}
+	}
+		xmlHttp.send(); 
+		
+}
+       
+
+
+	</script>
+	
+</head>
+<body>
+	<a href="https://api.exmail.qq.com/cgi-bin/gettoken?corpid=ww921a4970fdb80915&corpsecret=21IMFXF4U-ojj3INDsVGl6TLTmE6TFP8iYIWJiz03sTGuYukyOLKerUFch938Dxd" onclick="gettoken()">234</a>
+<form  id="ajax_form" action="https://api.exmail.qq.com/cgi-bin/user/update?access_token=ClAXRgsqNcU23dvCLqi6Gltxhs_ViS4qB8lbTfg3fGiSzw-YtKbt-CBHRPfUZhS4Mp_42DLaLdStjFA2n1W4TQ" method="post">
+
+
+<!-- <button id="but1">点击这个是json字符串，能看 但不能用</button>
+	<button id="but2" type="submit">点击这个才是json对象，才可以用</button> -->
+	
+
+ <!--  <div class="form-group col-lg-10 input-lg">
+    <label for="bookclerk" class="success">企业邮箱</label>
+    <input type="text" class="form-control" id="bookclerk" name="userid"  >
+  </div> -->
+	<h1 class=" text-center">深圳市泰博国际货运代理有限公司</h1>
+	<div class="form-group col-md-1 pull-right">
+			<a type="button" class="btn btn-primary btn-lg" href="{:url('index/index/index')}">返回首页</a>
+		</div>	
+  <div class="form-group">
+ 
+    <label for="inputEmail3" class="col-sm-5 control-label "  style="font-size:20px">企业邮箱</label>
+
+    <div class="col-sm-10">
+      <input type="text" name="userid" class="form-control col-sm-6 input-lg" id="inputEmail3" >
+     
+    </div>
+  </div>
+  <!--  <div class="form-group col-lg-12  input-lg">
+    <label for="exampleInputPassword1">姓名</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="name" >
+	</div> -->
+
+ <!-- <div class="form-group col-lg-12  input-lg">
+ 	 <label for="exampleInputPassword1">部门</label>
+			<input id="type" type="text" list="typelist" placeholder="请选择" name="department">
+			<datalist id="typelist">
+			　　<option value="1">行政IT</option>
+			　　<option value="2">操作</option>
+			</datalist>
+ </div> -->
+
+  <!-- <div class="form-group col-lg-12  input-lg">
+    <label for="exampleInputPassword1">职位</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="position"  >
+  </div> -->
+ <!--  <div class="form-group col-lg-12  input-lg">
+    <label for="exampleInputPassword1">手机号</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="mobile"  >
+  </div>  -->
+   <!-- <div class="form-group col-lg-10 input-lg">
+    	 <label for="exampleInputPassword1">启用/禁用成员</label>
+      <div class="radio">
+        <label>
+          <input type="radio" name="enable" value="1" checked > 启用
+        </label>
+      </div>
+      <div class="radio ">
+        <label>
+          <input type="radio" name="enable" value="0"  > 禁用
+        </label>
+      </div>
+
+
+    </div> -->
+   
+  <div class="form-group">
+    
+    	 <label for="inputEmail3" class="col-sm-4 control-label "  style="font-size:20px">启用/禁用成员</label>
+
+    <div class="radio col-sm-10">
+        <label>
+          <input type="radio" name="enable" value="1" checked > 启用
+        </label>
+      </div>
+      <div class="radio col-sm-5">
+        <label>
+          <input type="radio" name="enable"  value="0" >禁用
+        </label>
+      </div>
+
+</div>
+
+
+
+  <!-- <div class="form-group col-lg-10 input-lg">
+    <label for="exampleInputPassword1">密码</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" name="password" >
+  </div> -->
+
+
+
+   <div class="form-group">
+    <div class=" col-sm-10">
+    	 <label for="inputEmail5" class="col-sm-3 control-label "  style="font-size:20px">密码</label>
+       <input type="password" name="password" class="form-control col-sm-6 input-lg" id="inputEmail5"> 
+         
+    </div>
+      
+
+
+    </div>
+
+
+
+
+
+  <!--  <div class="form-group col-lg-10 input-lg">
+    	 <label for="exampleInputPassword1">重新登录时是否重设密码</label>
+      <div class="radio">
+        <label>
+          <input type="radio" name="cpwd_login" value="1" > 是
+        </label>
+      </div>
+      <div class="radio ">
+        <label>
+          <input type="radio" name="cpwd_login" value="0" checked > 否
+        </label>
+      </div>
+
+
+    </div> -->
+ 
+  <div class="form-group">
+    
+    	 <label for="inputEmail3" class="col-sm-4 control-label "  style="font-size:20px">重新登录时是否重设密码</label>
+
+    <div class="radio col-sm-10">
+        <label>
+          <input type="radio" name="cpwd_login" value="1" > 是
+        </label>
+      </div>
+      <div class="radio col-sm-5">
+        <label>
+          <input type="radio" name="cpwd_login"  value="0" checked  >否
+        </label>
+      </div>
+
+</div>
+
+  
+  
+   <div class="form-group col-lg-10 input-lg">
+  
+  
+				<input type="button" onclick="submitForm('ajax_form', 'tip')" value="提交" class="col-sm-1 control-label btn-primary "  style="font-size:20px">
+   </div>
+	</form>
+	<div id="tip"></div>
+</body>
+</html>

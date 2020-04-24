@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    {include file="common/meta"/}
+    <style>
+    #main1{
+        width: 1000px; height: 600px;
+        border:1px solid #999;
+        margin:100px 200px;
+    }
+    #main2{
+        width: 1000px; height: 600px;
+        border:1px solid #999;
+        margin:100px 200px;
+    }
+    #main3{
+        width: 1000px; height: 600px;
+        border:1px solid #999;
+        margin:100px 200px;
+    }
+</style>
+</head>
+
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+
+
+    <div class="container">
+
+     <h1 class="col-sm-12 text-center">T量按条件走势图搜索</h1>
+     <form  action="{:url('test/index')}" method="post">
+
+
+            <!-- <div class='col-sm-6'>
+                <div class="form-group">
+                    <label>按年份选择：</label>
+                    <!--指定 date标记-->
+                    
+                    <div class='col-sm-6'>
+                        <div class="form-group">
+                            <label>按日期选择：</label>
+                            <!--指定 date标记-->
+                            <div class='input-group date' id='datetimepicker5'>
+                                <input type='text' class="form-control" name="startday" />
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='col-sm-6'>
+                        <div class="form-group">
+                            <label>选择日期：</label>
+                            <!--指定 date标记-->
+                            <div class='input-group date' id='datetimepicker6'>
+                                <input type='text' class="form-control" name="endday" />
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+                    <div class="col-md-2">
+                        <button class="btn btn-primary btn-lg btn-block" type="submit">搜索</button>  
+                    </div>
+
+                </form>
+
+                <div  style="width: 600px;height:200px;"></div>
+                <div id="main1"  ></div>
+                <div id="main2"  ></div>
+                <div id="main3"  ></div>
+
+            </div>
+
+
+        </body>
+        </html>
+        <script type="text/javascript">
+
+            $(function () {
+
+
+                $('#datetimepicker5').datetimepicker({
+                    format: 'YYYY-MM-DD',
+                    locale: moment.locale('zh-cn')
+                });
+                $('#datetimepicker6').datetimepicker({
+                    format: 'YYYY-MM-DD',
+                    locale: moment.locale('zh-cn')
+                });
+
+            });
+
+
+        </script>
+        <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main1'));
+
+        // 指定图表的配置项和数据
+       
+
+        // 使用刚指定的配置项和数据
+     var   option = {
+            title: {
+                text: '折线图堆叠'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data:{$ship|raw}
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            toolbox: {
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: {$arrayday|raw}
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [
+            {  {for}
+                name: 'one',
+                type: 'line',
+                stack: '总量',
+                data: [120,130,120,130,120,120,140]
+            }
+            ]
+        };
+        myChart.setOption(option);
+    </script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main2'));
+
+        // 指定图表的配置项和数据
+        var option = {
+            xAxis: {
+                type: 'category',
+                data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [{
+                data: [820, 932, 901, 934, 1290, 1330, 1320],
+                type: 'line'
+            }]
+        };
+
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main3'));
+
+        // 指定图表的配置项和数据
+        var option = {
+            xAxis: {
+                type: 'category',
+                data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [{
+                data: [820, 932, 901, 934, 1290, 1330, 1320],
+                type: 'line'
+            }]
+        };
+
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+    
+    
